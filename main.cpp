@@ -7,7 +7,7 @@
 
 int main() {
 
-    std::cout << "=================\n";
+    std::cout << "\n=================\n";
     std::cout << "PROGRAM BEGINNING\n";
     std::cout << "=================\n";
 
@@ -18,9 +18,10 @@ int main() {
 
     // Simulation specs initialization
     float dt = 50.0f; // timestep in seconds
-    int steps = 6155815; // number of timesteps to simulate
+    int steps = 10000; // number of timesteps to simulate
 
     // Print info over each celestial
+    std::cout << "\n===== Initial State: =====" << std::endl;
     for (auto c : celestials)
         c.printCelestialInfo();
 
@@ -33,7 +34,12 @@ int main() {
         }
     }
 
+    std::cout << "\n===== Final State: =====" << std::endl;
     //Print info over each celestial
     for (auto c : celestials) 
         c.printCelestialInfo();
+
+    std::cout << "\n=================\n";
+    std::cout << "PROGRAM END\n";
+    std::cout << "=================\n";
 }
