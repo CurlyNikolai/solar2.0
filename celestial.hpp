@@ -27,7 +27,7 @@ class Celestial {
         inline void setVelocity(Vec3f new_velocity)             { velocity = new_velocity; };
         inline void setAcceleration(Vec3f new_acceleration)     { acceleration = new_acceleration; };
 
-        std::string printCelestialInfo();
+        void printCelestialInfo();
 
     private:
         std::string name = "";

@@ -12,7 +12,7 @@ Celestial::Celestial(std::string new_name, float new_mass, Vec3f new_position, V
 
 
 // Method for printing out class information
-std::string Celestial::printCelestialInfo() {
+void Celestial::printCelestialInfo() {
     std::string info = "Planet: " + name + "\n";
 
     info += "  - mass (kg): " + std::to_string(mass) + "\n";
@@ -40,7 +40,5 @@ std::string Celestial::printCelestialInfo() {
     std::cout << std::setw(20) << "  - acceleration: ";
     std::cout << std::right;
     std::cout << std::scientific << std::setw(15) << acceleration.x << " " << std::setw(15) << acceleration.y << " " << std::setw(15) << acceleration.z << "\n";
-
-    return info;
 
 }
