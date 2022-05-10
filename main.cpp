@@ -1,45 +1,30 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
+#include <string>
 
 #include "curlymath.hpp"
 #include "celestial.hpp"
-#include "velverlet.hpp"
+#include "integrator.hpp"
+#include "solarsystem.hpp"
+#include "simulation.hpp"
 
-int main() {
+using namespace std;
 
-    std::cout << "\n=================\n";
-    std::cout << "PROGRAM BEGINNING\n";
-    std::cout << "=================\n";
+int main(int argc, char *argv[]) {
 
-    // Solar system initialization
-    Celestial sun("Sun", 1.988E+30f, Vec3f(2.843E+05, 9.041E+05, -1.833E+4), Vec3f(-9.889E-3, 8.899E-03, 2.381E-04), Vec3f());
-    Celestial earth("Earth", 5.972E+24, Vec3f(1.835E+07, 1.470E+08, -2.499E+4), Vec3f(-3.006E+1, 3.562E+00, 1.929E-04), Vec3f());
-    std::vector<Celestial> celestials = {sun, earth};
 
-    // Simulation specs initialization
-    float dt = 50.0f; // timestep in seconds
-    int steps = 10000; // number of timesteps to simulate
+    // Read solar system from file
+    string input_file_path = "./data/test_data.dat";
+    SolarSystem system(input_file_path);
 
-    // Print info over each celestial
-    std::cout << "\n===== Initial State: =====" << std::endl;
-    for (auto c : celestials)
-        c.printCelestialInfo();
+    Simulation simulation;
 
-    // Main simulation loop
-    for (int step = 0; step < steps; step++)
-    {
-        // Update each celestial with velocity verlet
-        for (int i = 0; i < celestials.size(); i++) {
-            update(dt, i, celestials);
-        }
-    }
+    simulation.setSolarSystem(system);
 
-    std::cout << "\n===== Final State: =====" << std::endl;
-    //Print info over each celestial
-    for (auto c : celestials) 
-        c.printCelestialInfo();
+    simulation.setSteps(6311600);
+    simulation.setPrintInterval(10000);
+    simulation.setTimeStep(1000.0);
 
-    std::cout << "\n=================\n";
-    std::cout << "PROGRAM END\n";
-    std::cout << "=================\n";
+    simulation.runSimulation();
 }
