@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 
 
     // Read solar system from file
-    string input_file_path = "./data/test_data.dat";
+    string input_file_path = "./data/FULL_SYSTEM-input.dat";
     SolarSystem system(input_file_path);
 
     Simulation simulation;

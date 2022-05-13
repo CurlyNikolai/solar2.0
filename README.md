@@ -1,0 +1,1 @@
+![Solar system simulation](solarsimulation.gif "Solar System Simulation")
