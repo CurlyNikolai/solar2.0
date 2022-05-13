@@ -3,9 +3,6 @@
 #include <vector>
 #include <string>
 
-#include "curlymath.hpp"
-#include "celestial.hpp"
-#include "integrator.hpp"
 #include "solarsystem.hpp"
 #include "simulation.hpp"
 

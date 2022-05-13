@@ -17,10 +17,9 @@ void Simulation::runSimulation() {
 
     // Main simulation loop
     for (int step = 1; step <= steps_; step++) {
-        // Update each celestial with velocity verlet
-        for (int i = 0; i < celestials.size(); i++) {
-            velverlet_update(dt_, i, celestials, G);
-        }
+        
+        // Update celestials with velocity verlet
+        velverlet_update(dt_, celestials, G);
 
         if (step % print_interval_ == 0) {
             std::cout << celestials.size() << "\n";
